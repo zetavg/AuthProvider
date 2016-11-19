@@ -3,7 +3,7 @@ module AuthProvider
     scope :valid, -> { where(revoked_at: nil) }
 
     belongs_to :resource_owner, polymorphic: true
-    # has_many :oauth_access_tokens
+    has_many :oauth_access_tokens
 
     def valid?(*args)
       super(*args) && !revoked?
