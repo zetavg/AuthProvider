@@ -2,7 +2,7 @@ class CreateAuthProviderOAuthSessions < ActiveRecord::Migration[5.0]
   def change
     create_table :oauth_sessions do |t|
       t.integer :resource_owner_id, null: false
-      t.integer :resource_owner_type, null: false
+      t.string :resource_owner_type, null: false
 
       t.string :device_name
       t.string :device_type
