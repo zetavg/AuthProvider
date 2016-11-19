@@ -27,7 +27,7 @@ module AuthProvider
 
     def use!
       fail unless valid?
-      revoke_other_access_tokens_of_the_session!
+      revoke_other_access_tokens_under_the_session!
     end
 
     def revoke!
