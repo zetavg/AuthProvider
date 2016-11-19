@@ -1,6 +1,6 @@
 class CreateAuthProviderOAuthSessions < ActiveRecord::Migration[5.0]
   def change
-    create_table :auth_provider_oauth_sessions do |t|
+    create_table :oauth_sessions do |t|
       t.integer :resource_owner_id, null: false
       t.integer :resource_owner_type, null: false
 
@@ -12,9 +12,9 @@ class CreateAuthProviderOAuthSessions < ActiveRecord::Migration[5.0]
       t.datetime :revoked_at
     end
 
-    add_index :auth_provider_oauth_sessions, :resource_owner_id
-    add_index :auth_provider_oauth_sessions, :resource_owner_type
-    add_index :auth_provider_oauth_sessions, :device_type
-    add_index :auth_provider_oauth_sessions, :revoked_at
+    add_index :oauth_sessions, :resource_owner_id
+    add_index :oauth_sessions, :resource_owner_type
+    add_index :oauth_sessions, :device_type
+    add_index :oauth_sessions, :revoked_at
   end
 end

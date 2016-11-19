@@ -1,5 +1,7 @@
 module AuthProvider
   class OAuthSession < ApplicationRecord
+    self.table_name = :oauth_sessions
+
     scope :valid, -> { where(revoked_at: nil) }
 
     belongs_to :resource_owner, polymorphic: true

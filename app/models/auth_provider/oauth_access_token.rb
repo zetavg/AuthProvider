@@ -1,5 +1,7 @@
 module AuthProvider
   class OAuthAccessToken < ApplicationRecord
+    self.table_name = :oauth_access_tokens
+
     scope :not_revoked, -> { where(revoked_at: nil) }
 
     belongs_to :oauth_session
