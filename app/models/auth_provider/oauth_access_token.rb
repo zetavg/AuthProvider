@@ -4,7 +4,8 @@ module AuthProvider
 
     belongs_to :oauth_session
 
-    delegate :resource_owner, to: :oauth_session, prefix: false
+    delegate :resource_owner, :device_name, :device_type, :device_identifier,
+             to: :oauth_session, prefix: false
 
     after_initialize :init_token
     after_initialize :init_refresh_token
