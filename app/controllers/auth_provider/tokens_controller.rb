@@ -24,6 +24,7 @@ module AuthProvider
         render(status: 200, json: {
           access_token: oauth_access_token.token,
           token_type: "bearer",
+          created_at: oauth_access_token.created_at.to_i,
           expires_in: oauth_access_token.expires_in,
           refresh_token: oauth_access_token.refresh_token
         }) and return
@@ -43,6 +44,7 @@ module AuthProvider
         render(status: 200, json: {
           access_token: oauth_access_token.token,
           token_type: "bearer",
+          created_at: oauth_access_token.created_at.to_i,
           expires_in: oauth_access_token.expires_in,
           refresh_token: oauth_access_token.refresh_token
         }) and return
