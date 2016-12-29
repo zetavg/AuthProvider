@@ -1,10 +1,10 @@
 # AuthProvider
-Short description and motivation.
 
-## Usage
-How to use my plugin.
+A simple authentication provider for Ruby/Rails app. Designed for mobile clients and is compatible with the OAuth 2.0 specification.
+
 
 ## Installation
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -12,17 +12,30 @@ gem 'auth_provider'
 ```
 
 And then execute:
+
 ```bash
 $ bundle
 ```
 
-Or install it yourself as:
+Run the installation generator with:
+
 ```bash
-$ gem install auth_provider
+$ rails generate auth_provider:install
 ```
 
-## Contributing
-Contribution directions go here.
+And install the migrations:
+
+```bash
+$ rails auth_provider:install:migrations
+```
+
+Last, don't forget to run:
+
+```bash
+$ rake db:migrate
+```
+
 
 ## License
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+[MIT License](http://opensource.org/licenses/MIT).
