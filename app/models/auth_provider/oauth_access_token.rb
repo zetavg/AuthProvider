@@ -49,7 +49,7 @@ module AuthProvider
     end
 
     def init_expires_in
-      self.expires_in ||= 7200
+      self.expires_in ||= AuthProvider.configuration.access_token_expiration_time
     end
   end
 end
