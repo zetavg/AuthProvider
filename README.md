@@ -26,7 +26,7 @@ $ rails generate auth_provider:install
 And install the migrations:
 
 ```bash
-$ rails auth_provider:install:migrations
+$ rails generate auth_provider:migration
 ```
 
 Last, don't forget to run:
