@@ -13,8 +13,8 @@ module AuthProvider
     after_initialize :init_refresh_token
     after_initialize :init_expires_in
 
-    def valid?(*args)
-      super(*args) && !revoked? && !expired?
+    def can_use?
+      !revoked? && !expired?
     end
 
     def expired?
@@ -26,7 +26,7 @@ module AuthProvider
     end
 
     def use!
-      fail unless valid?
+      fail unless can_use?
       revoke_other_access_tokens_under_the_session!
     end
 

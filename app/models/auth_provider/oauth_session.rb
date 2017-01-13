@@ -7,8 +7,8 @@ module AuthProvider
     belongs_to :resource_owner, polymorphic: true
     has_many :oauth_access_tokens
 
-    def valid?(*args)
-      super(*args) && !revoked?
+    def available?
+      !revoked?
     end
 
     def revoked?
