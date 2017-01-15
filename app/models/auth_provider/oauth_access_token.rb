@@ -13,7 +13,7 @@ module AuthProvider
     after_initialize :init_refresh_token
     after_initialize :init_expires_in
 
-    def can_use?
+    def available?
       !revoked? && !expired?
     end
 
@@ -26,7 +26,7 @@ module AuthProvider
     end
 
     def use!
-      fail unless can_use?
+      raise AccessTokenUnavailable unless available?
       revoke_other_access_tokens_under_the_session!
     end
 
@@ -36,6 +36,12 @@ module AuthProvider
 
     def revoke_other_access_tokens_under_the_session!
       oauth_session.oauth_access_tokens.not_revoked.where.not(id: id).update_all(revoked_at: Time.current)
+    end
+
+    class AccessTokenUnavailable < StandardError
+      def initialize
+        super('The access token is unavailable and can not be used.')
+      end
     end
 
     private
