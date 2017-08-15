@@ -23,13 +23,7 @@ Run the installation generator with:
 $ rails generate auth_provider:install
 ```
 
-And install the migrations:
-
-```bash
-$ rails generate auth_provider:migration
-```
-
-Last, don't forget to run:
+And don't forget to run:
 
 ```bash
 $ rake db:migrate

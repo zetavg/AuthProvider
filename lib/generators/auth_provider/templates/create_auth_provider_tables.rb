@@ -1,4 +1,4 @@
-class CreateAuthProviderTables < ActiveRecord::Migration
+class CreateAuthProviderTables < ActiveRecord::Migration[4.2]
   def change
     create_table :oauth_sessions do |t|
       t.integer :resource_owner_id, null: false
