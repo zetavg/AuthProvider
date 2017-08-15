@@ -4,7 +4,7 @@ module AuthProvider
 
     scope :available, -> { where(revoked_at: nil) }
 
-    belongs_to :resource_owner, polymorphic: true
+    belongs_to :resource_owner, polymorphic: true, required: true
     has_many :oauth_access_tokens
 
     def available?

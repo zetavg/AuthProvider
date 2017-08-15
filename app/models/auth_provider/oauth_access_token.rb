@@ -4,7 +4,7 @@ module AuthProvider
 
     scope :not_revoked, -> { where(revoked_at: nil) }
 
-    belongs_to :oauth_session
+    belongs_to :oauth_session, required: true
 
     delegate :resource_owner, :device_name, :device_type, :device_identifier,
              to: :oauth_session, prefix: false
