@@ -15,4 +15,4 @@ matrix:
     gemfile: gemfiles/rails_5.gemfile
   - rvm: 2.4.0
     gemfile: gemfiles/rails_4.gemfile
-script: "bundle exec rspec spec"
+script: "rake test"
