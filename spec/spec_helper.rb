@@ -16,6 +16,31 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'simplecov'
+require 'coveralls'
+
+SimpleCov.start do
+  load_profile 'test_frameworks'
+
+  add_group 'Lib', 'lib/auth_provider'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Helpers', 'app/helper'
+  add_group 'Jobs', 'app/jobs'
+
+  add_filter 'lib/auth_provider/version.rb'
+  add_filter 'lib/generators/auth_provider'
+
+  track_files '{app,lib}/**/*.rb'
+end
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+  [
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+)
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
