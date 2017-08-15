@@ -1,4 +1,4 @@
-Rails.application.configure do
+Dummy::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -17,9 +17,9 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
-    }
+    # config.public_file_server.headers = {
+    #   'Cache-Control' => 'public, max-age=172800'
+    # }
   else
     config.action_controller.perform_caching = false
 
