@@ -23,11 +23,18 @@ Run the installation generator with:
 $ rails generate auth_provider:install
 ```
 
-And don't forget to run:
+This will install the auth_provider initializer into `config/initializers/auth_provider.rb`, mount `AuthProvider::Engine` at `/oauth` in `config/routes.rb` and copy the database migration file.
+
+At last, don't forget to run:
 
 ```bash
 $ rake db:migrate
 ```
+
+
+## Configuration
+
+All the configurations of auth_provider can be found in `config/initializers/auth_provider.rb`, just check it out!
 
 
 ## License
