@@ -1,6 +1,22 @@
-# This migration comes from auth_provider (originally 20161119092930)
-class CreateAuthProviderOAuthAccessTokens < ActiveRecord::Migration[5.0]
+class CreateAuthProviderTables < ActiveRecord::Migration[4.2]
   def change
+    create_table :oauth_sessions do |t|
+      t.integer :resource_owner_id, null: false
+      t.string :resource_owner_type, null: false
+
+      t.string :device_name
+      t.string :device_type
+      t.text :device_identifier
+
+      t.datetime :created_at, null: false
+      t.datetime :revoked_at
+    end
+
+    add_index :oauth_sessions, :resource_owner_id
+    add_index :oauth_sessions, :resource_owner_type
+    add_index :oauth_sessions, :device_type
+    add_index :oauth_sessions, :revoked_at
+
     create_table :oauth_access_tokens do |t|
       t.integer :oauth_session_id, null: false
       t.text :token, null: false

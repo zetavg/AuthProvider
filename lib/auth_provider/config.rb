@@ -5,12 +5,16 @@ module AuthProvider
     end
   end
 
-  def self.configure(&block)
-    @config = Config::Builder.new(&block).build
-  end
+  class << self
+    def configure(&block)
+      @config = Config::Builder.new(&block).build
+    end
 
-  def self.configuration
-    @config || (fail MissingConfiguration)
+    def configuration
+      @config || (raise MissingConfiguration)
+    end
+
+    alias config configuration
   end
 
   class Config
