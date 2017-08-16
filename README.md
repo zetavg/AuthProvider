@@ -1,4 +1,4 @@
-# AuthProvider
+# AuthProvider [![Build Status](https://travis-ci.org/zetavg/AuthProvider.svg?branch=master)](https://travis-ci.org/zetavg/AuthProvider) [![Coverage Status](https://coveralls.io/repos/github/zetavg/AuthProvider/badge.svg?branch=master)](https://coveralls.io/github/zetavg/AuthProvider?branch=master)
 
 A simple authentication provider for Ruby/Rails app. Designed for mobile clients and is compatible with the OAuth 2.0 specification.
 
