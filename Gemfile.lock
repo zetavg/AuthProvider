@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    auth_provider (0.0.2)
+    auth_provider (0.0.3)
       rails (>= 4.2, < 5.2)
 
 GEM
